@@ -1,0 +1,23 @@
+---
+title: "Install PostgreSQL"
+output: html_notebook
+---
+
+```{bash}
+# Install postgres
+# https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-16-04
+
+sudo apt-get install postgresql postgresql-contrib
+
+sudo -u postgres createuser --interactive
+# rstudio
+# y
+
+sudo -u postgres createdb testdb
+
+sudo -u rstudio psql -d testdb
+# ALTER USER rstudio WITH PASSWORD 'rstudio';
+
+psql -d testdb -h localhost -U rstudio -W 
+# rstudio
+```

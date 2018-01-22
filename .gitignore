@@ -1,0 +1,8 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+rsconnect
+*.html
+*.sh
+r-admin-2018.Rproj
