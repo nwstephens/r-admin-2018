@@ -1,0 +1,35 @@
+---
+title: "Instance Setup"
+output: html_notebook
+---
+
+### AWS Setup
+
+* Choose an AMI on EC2
+* Ubuntu 16.04
+* Instance Size: 2 core; 4 GB RAM; 128 GB Disk
+
+### Open ports in the security group
+
+* Port 8787
+* Port 3939
+* Port 80
+
+### Create a pem key and connect to instance
+
+```{bash}
+ssh -i ~/.ssh/my.pem ubuntu@<ip>
+```
+
+### Update
+
+```{bash}
+sudo apt-get update
+```
+
+### Add a user
+
+```{bash}
+sudo useradd -m rstudio
+sudo echo "rstudio:rstudio" | chpasswd
+```
