@@ -1,0 +1,41 @@
+---
+title: "Bitcoin ETL"
+output: html_notebook
+---
+
+Visit the website [here](http://ec2-54-149-163-100.us-west-2.compute.amazonaws.com:8787/s/0da298267cf5e712f78ea/files/r-admin-2018/html/arch.html).
+
+```{r setup, message=FALSE}
+library(jsonlite)
+library(purrr)
+library(DBI)
+library(dplyr)
+```
+
+## Extract
+
+```{r}
+dat_json <- fromJSON("https://blockchain.info/ticker")
+dat_df <- map_dfr(dat_json, c, .id="name")
+```
+
+## Transform
+
+```{r}
+dat <- dat_df %>%
+  mutate(timestamp = Sys.time()) %>%
+  select(timestamp, name:symbol)
+```
+
+## Load
+
+```{r}
+con <- dbConnect(odbc::odbc(), "Postgres (DSN)")
+#dbRemoveTable(con, "bitcoin")
+dbWriteTable(con, "bitcoin", dat, append = TRUE)
+```
+
+```{r, echo=FALSE}
+dat
+```
+
