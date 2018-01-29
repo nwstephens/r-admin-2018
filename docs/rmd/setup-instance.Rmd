@@ -31,5 +31,5 @@ sudo apt-get update
 
 ```{bash}
 sudo useradd -m rstudio
-sudo echo "rstudio:rstudio" | chpasswd
+sudo echo "rstudio:mypassword" | chpasswd
 ```
