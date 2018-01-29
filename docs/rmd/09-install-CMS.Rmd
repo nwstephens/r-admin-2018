@@ -14,7 +14,7 @@ sudo apt-get install -y apache2
 
 ```{bash}
 sudo mv /var/www/html/index.html /var/www/html/index.html_backup
-sudo vim /var/www/html/index.html
+sudo ln -s /home/rstudio/r-admin-2018/bitcoin/04-html/ /var/www/html
 ```
 
 Point your browser to <ip>.
