@@ -1,0 +1,56 @@
+---
+title: "Build R from Source"
+output: html_notebook
+---
+
+### Install dependencies
+
+```{bash}
+sudo apt-get build-dep r-base
+```
+
+If `build-dep` fails, you may need to add a repository the following repository:
+
+```{bash}
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+sudo add-apt-repository 'deb [arch=amd64,i386] https://cran.rstudio.com/bin/linux/ubuntu xenial/'
+```
+
+### Build R from source (version 3.4.3)
+
+```{bash}
+cd /opt
+sudo wget https://cran.rstudio.com/src/base/R-3/R-3.4.3.tar.gz
+sudo tar xzvf R-3.4.3.tar.gz 
+cd R-3.4.3
+
+sudo ./configure --prefix=/opt/R/3.4.3 --enable-R-shlib --with-blas --with-lapack
+sudo make
+sudo make install
+
+/opt/R/3.4.3/bin/R
+```
+
+### Build multiple versions of R running side by side (optional)
+
+```{bash}
+rversion=3.3.1
+cd /opt
+sudo wget https://cran.rstudio.com/src/base/R-3/R-$rversion.tar.gz
+sudo tar xzvf R-$rversion.tar.gz 
+cd R-$rversion
+
+sudo ./configure --prefix=/opt/R/$rversion --enable-R-shlib --with-blas --with-lapack
+sudo make
+sudo make install
+
+/opt/R/$rversion/bin/R
+
+sudo rstudio-server restart
+```
+
+### Install R binary from CRAN (optional)
+
+```{bash}
+sudo apt-get install -y r-base r-base-dev
+```
