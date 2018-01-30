@@ -47,6 +47,6 @@ dygraph(tseries, main = lab) %>%
   dyRangeSelector(fillColor = "lightsteelblue", strokeColor = "white")
 ```  
 
-###
+***
 
 *Report as of: `r as.character(max(dat$timestamp))`. See [blockchain.info](https://blockchain.info/api/exchange_rates_api) for data source. CSS is borrowed from [here](http://markdowncss.github.io/modest/). For more information on R Markdown see [rmarkdown.com](http://rmarkdown.rstudio.com/).*

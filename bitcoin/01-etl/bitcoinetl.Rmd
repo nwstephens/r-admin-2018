@@ -3,7 +3,8 @@ title: "Bitcoin ETL"
 output: html_notebook
 ---
 
-Visit the website [here](http://ec2-54-149-163-100.us-west-2.compute.amazonaws.com:8787/s/0da298267cf5e712f78ea/files/r-admin-2018/html/arch.html).
+* [Website](http://ec2-54-149-163-100.us-west-2.compute.amazonaws.com/bitcoin.html)
+* [Code](http://ec2-54-149-163-100.us-west-2.compute.amazonaws.com:3939/connect/#/apps/25/access/4)
 
 ```{r setup, message=FALSE}
 library(jsonlite)
