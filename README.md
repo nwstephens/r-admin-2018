@@ -1,6 +1,6 @@
 # A guide to professional R tooling and integration
 
-This repository explains the tooling for a scalable data lab that integrates with other systems.
+This repository explains the tooling for a scalable data lab that integrates with other systems. See the [RStudio admin docs](http://docs.rstudio.com/) for detailed information.
 
 ### Data Lab
 
