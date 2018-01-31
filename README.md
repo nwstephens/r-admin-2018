@@ -12,9 +12,10 @@ Integrate your content with other systems. Embed Shiny apps into webpages, email
 
 These files demonstrate how to create content in R and then integrate that content into other systems. The bitcoin demo downloads data from a web API every 15 minutes and loads it into a database. These assets are created and shared. All assets are connected to the database which gets updated every 15 minutes.
 
-Content Type | Integration
---------------------------------|---------------------------------
-Shiny app | Web page on Apache web server
-Parameterized R Markdown Report | Email on demand and scheduled
-Plumber API | REST call
+Content Type | Data Lab Capability |  Systems Integration
+-----------------------|-------------------------------------|---------------------------------
+1. R Notebook     | Automate simple workflows | Pull data from the web and write to a database
+2. Shiny app | Easily publish, host, and manage at scale | Web page on Apache web server
+3. R Markdown Report | Create dynamic, self-serve reports | Email on demand or scheduled
+4. Plumber API | Easily host multiple endpoints and output types | REST call
 
