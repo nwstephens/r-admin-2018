@@ -15,29 +15,3 @@ sudo sendmailconfig
 sudo service apache2 restart
 ```
 
-### Configure
-
-Configure RStudio Connect so that it can send emails via sendmail. For more information see the [RStudio Connect admin guild](http://docs.rstudio.com/connect/admin/getting-started.html#getting-started-email).
-
-```{bash}
-sudo vim /etc/rstudio-connect/rstudio-connect.gcfg
-```
-
-Enter the following configuration. Make sure to use your public IP in the address field.
-
-```
-# [Server]
-# SenderEmail = rstudio
-# Address = <public-ec2-ip.region.compute.amazonaws.com>
-# [Http]
-# Listen = :3939
-# NoWarning = true
-# [Authentication]
-# Provider = password
-```
-
-Restart RStudio Connect.
-
-```{bash}
-sudo systemctl restart rstudio-connect
-```
