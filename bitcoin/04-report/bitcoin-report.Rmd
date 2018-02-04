@@ -13,6 +13,14 @@ params:
     choices: [USD, JPY, CNY, SGD, HKD, CAD, NZD, 
               AUD, CLP, GBP, DKK, SEK, ISK, CHF, 
               BRL, EUR, RUB, PLN, THB, KRW, TWD]
+  start:
+    label: "Start:"
+    value: !r Sys.Date() - 3
+    input: date
+  end:
+    label: "End:"
+    value: !r Sys.Date()
+    input: date
 
 ---
 
@@ -29,8 +37,10 @@ con <- dbConnect(odbc::odbc(), "Postgres (DSN)")
 bitcoin <- tbl(con, "bitcoin")
 
 # Tidy
+if(params$start > params$end) stop("Start must occur before end")
 dat <- bitcoin %>%
   filter(name == params$code) %>%
+  filter(timestamp > params$start & timestamp <= params$end) %>%
   select(timestamp, last, symbol) %>%
   collect
 tseries <- xts(dat$last, dat$timestamp)

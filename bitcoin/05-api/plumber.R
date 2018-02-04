@@ -16,7 +16,7 @@ currency <- function(code="USD"){
 }
 
 #' @get /plot
-#' @param code Currency code (DCA; JPY; CNY; GBP)
+#' @param code Currency code (USD; JPY; CNY; GBP)
 #' @serializer htmlwidget
 function(code="USD"){
   dat <- currency(code)
@@ -34,7 +34,7 @@ function(code="USD"){
 }
 
 #' @get /table
-#' @param code Currency code (DCA; JPY; CNY; GBP)
+#' @param code Currency code (USD; JPY; CNY; GBP)
 #' @serializer htmlwidget
 function(code="USD"){
   currency(code) %>%
@@ -42,7 +42,7 @@ function(code="USD"){
 }
 
 #' @get /data
-#' @param code Currency code (DCA; JPY; CNY; GBP)
+#' @param code Currency code (USD; JPY; CNY; GBP)
 function(code="USD"){
   currency(code)
 }

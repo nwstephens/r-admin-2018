@@ -18,12 +18,17 @@ ui <- fluidPage(
   titlePanel("Bitcoin Exchange Rates"),
   sidebarLayout(
     sidebarPanel(
-      selectInput("code", "Exchange Code:", choices = codes)
+      selectInput("code", "Exchange Code:", choices = codes),
+      dateRangeInput('dates',
+                     label = 'Date range:',
+                     start = Sys.Date() - 3, end = Sys.Date()
+      )
     ),
     mainPanel(align="center",
       dygraphOutput("dygraph", width = "100%", height = "275px"),
       p(),
-      textOutput("asof")
+      textOutput("asof"),
+      verbatimTextOutput("dateRangeText")
     )
   )
 )
@@ -31,8 +36,10 @@ ui <- fluidPage(
 server <- function(input, output) {
 
   dat <- reactive({
+    validate(need(input$dates[1] < input$dates[2], "Start must occur before end"))
     bitcoin %>%
       filter(name == input$code) %>%
+      filter(timestamp > input$dates[1] & timestamp <= input$dates[2]) %>%
       select(timestamp, last, symbol) %>%
       collect
   })
