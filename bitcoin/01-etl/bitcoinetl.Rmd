@@ -26,6 +26,7 @@ dat_df <- map_dfr(dat_json, c, .id="name")
 dat <- dat_df %>%
   mutate(timestamp = Sys.time()) %>%
   select(timestamp, name:symbol)
+dat
 ```
 
 ## Load
@@ -36,7 +37,9 @@ con <- dbConnect(odbc::odbc(), "Postgres (DSN)")
 dbWriteTable(con, "bitcoin", dat, append = TRUE)
 ```
 
-```{r, echo=FALSE}
-dat
-```
+
+
+
+
+
 

@@ -21,18 +21,18 @@ Create a database user called `rstudio`. Note that this database user is not the
 ```{bash}
 ### Create a new user called 'rstudio'
 sudo -u postgres createuser --interactive
-# rstudio
+# rstudioadmin
 # y
 
 ### Create a new database called 'testdb'
-sudo -u postgres createdb testdb
+sudo -u postgres createdb bitcoin
 
 ### Create a new password
-sudo -u rstudio psql -d testdb
-# ALTER USER rstudio WITH PASSWORD 'mypassword';
+sudo -u postgres psql -d bitcoin
+# ALTER USER rstudio WITH PASSWORD 'ABCd4321';
 
 ### Test the connection
-psql -d testdb -h localhost -U rstudio -W 
+psql -d bitcoin -h localhost -U rstudio -W 
 # mypassword
 ```
 
@@ -47,7 +47,7 @@ sudo vim /etc/odbc.ini
 Enter the following information, save, and close.
 
 ```
-[Postgres (DSN)]
+[Postgres (local)]
 Driver = postgresql
 server = localhost
 Database = testdb
@@ -67,12 +67,12 @@ con1 <- dbConnect(odbc::odbc(),
                   Driver = "postgresql", 
                   Server = "localhost", 
                   Port = "5432", 
-                  Database = "testdb", 
+                  Database = "bitcoin", 
                   UID = "rstudio", 
                   PWD = rstudioapi::askForPassword("Database password:"))
 
 ### Test DSN
-con2 <- dbConnect(odbc::odbc(), "Postgres (DSN)")
+con2 <- dbConnect(odbc::odbc(), "Postgres (local)")
 
 ### Upload data to the database
 dbWriteTable(con, "mtcars", mtcars)

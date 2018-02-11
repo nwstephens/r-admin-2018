@@ -31,6 +31,7 @@ library(DBI)
 library(dygraphs)
 library(xts)
 library(dplyr)
+library(dbplyr)
 
 # Connect
 con <- dbConnect(odbc::odbc(), "Postgres (DSN)")
@@ -38,9 +39,11 @@ bitcoin <- tbl(con, "bitcoin")
 
 # Tidy
 if(params$start > params$end) stop("Start must occur before end")
+start <- params$start
+end <- params$end + 1
 dat <- bitcoin %>%
   filter(name == params$code) %>%
-  filter(timestamp > params$start & timestamp <= params$end) %>%
+  filter(timestamp > start & timestamp <= end) %>%
   select(timestamp, last, symbol) %>%
   collect
 tseries <- xts(dat$last, dat$timestamp)

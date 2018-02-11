@@ -4,6 +4,7 @@ library(xts)
 library(shiny)
 library(shinythemes)
 library(dplyr)
+library(dbplyr)
 library(pool)
 
 con <- pool::dbPool(odbc::odbc(), dsn = "Postgres (DSN)")
@@ -21,7 +22,8 @@ ui <- fluidPage(
       selectInput("code", "Exchange Code:", choices = codes),
       dateRangeInput('dates',
                      label = 'Date range:',
-                     start = Sys.Date() - 3, end = Sys.Date()
+                     start = Sys.Date() - 3, 
+                     end = Sys.Date()
       )
     ),
     mainPanel(align="center",
@@ -37,9 +39,11 @@ server <- function(input, output) {
 
   dat <- reactive({
     validate(need(input$dates[1] < input$dates[2], "Start must occur before end"))
+    start <- input$dates[1]
+    end <- input$dates[2] + 1
     bitcoin %>%
       filter(name == input$code) %>%
-      filter(timestamp > input$dates[1] & timestamp <= input$dates[2]) %>%
+      filter(timestamp > start & timestamp <= end) %>%
       select(timestamp, last, symbol) %>%
       collect
   })

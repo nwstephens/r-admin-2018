@@ -3,14 +3,19 @@ library(DBI)
 library(dygraphs)
 library(xts)
 library(dplyr)
+library(dbplyr)
 library(DT)
 
 con <- dbConnect(odbc::odbc(), "Postgres (DSN)")
 bitcoin <- tbl(con, "bitcoin")
 
+start <- Sys.Date() - 3
+end <- Sys.Date() + 1
+
 currency <- function(code="USD"){
   bitcoin %>%
     filter(name == code) %>%
+    filter(timestamp > start & timestamp <= end) %>%
     select(timestamp, last, symbol) %>%
     collect
 }
@@ -47,4 +52,4 @@ function(code="USD"){
   currency(code)
 }
 
-# rsconnect::deployAPI("bitcoin/05-api", account = "rstudio")
+# rsconnect::deployAPI("bitcoin/05-api", account = "nathan", server = "colorado.rstudio.com")
