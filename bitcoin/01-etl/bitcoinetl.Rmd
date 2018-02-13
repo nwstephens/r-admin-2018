@@ -3,9 +3,6 @@ title: "Bitcoin ETL"
 output: html_notebook
 ---
 
-* [Website](http://ec2-54-149-163-100.us-west-2.compute.amazonaws.com/bitcoin.html)
-* [Code](http://ec2-54-149-163-100.us-west-2.compute.amazonaws.com:3939/connect/#/apps/25/access/4)
-
 ```{r setup, message=FALSE}
 library(jsonlite)
 library(purrr)

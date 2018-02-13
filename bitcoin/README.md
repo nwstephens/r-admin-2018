@@ -2,6 +2,10 @@
 
 This files demonstrate how to use R in a production environment.
 
+![](bitcoin-demo.png)
+
+### Files
+
 1. ETL. Extract, transform, and load bitcoin data from a web API into the PostgreSQL database.
 2. App. Build a Shiny app that depends on the database.
 3. HTML. Embed the Shiny app into a website.
