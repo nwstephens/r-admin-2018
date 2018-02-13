@@ -1,3 +1,7 @@
+#' @apiTitle Bitcoin Exchange Rates
+#' @apiDescription Historic exchange rates by currency for the most recent 3 days.
+#' @apiVersion 1.0.1
+
 library(plumber)
 library(DBI)
 library(dygraphs)
@@ -20,6 +24,20 @@ currency <- function(code="USD"){
     collect
 }
 
+#' @get /data
+#' @param code Currency code (USD; JPY; CNY; GBP)
+function(code="USD"){
+  currency(code)
+}
+
+#' @get /table
+#' @param code Currency code (USD; JPY; CNY; GBP)
+#' @serializer htmlwidget
+function(code="USD"){
+  currency(code) %>%
+    datatable
+}
+
 #' @get /plot
 #' @param code Currency code (USD; JPY; CNY; GBP)
 #' @serializer htmlwidget
@@ -36,20 +54,6 @@ function(code="USD"){
               axisLabelFontSize = 15) %>%
     dyRangeSelector(fillColor = "lightsteelblue", strokeColor = "white")
   print(p)
-}
-
-#' @get /table
-#' @param code Currency code (USD; JPY; CNY; GBP)
-#' @serializer htmlwidget
-function(code="USD"){
-  currency(code) %>%
-    datatable
-}
-
-#' @get /data
-#' @param code Currency code (USD; JPY; CNY; GBP)
-function(code="USD"){
-  currency(code)
 }
 
 # rsconnect::deployAPI("bitcoin/05-api", account = "nathan", server = "colorado.rstudio.com")
