@@ -3,7 +3,9 @@ title: "Bitcoin Demo Assets"
 output: html_notebook
 ---
 
-*Instructions: Open all 7 links in seperate browser tabs and walk through the following steps.*
+## Instructions
+
+Open all 7 links in seperate browser tabs and walk through the following steps.
 
 1. [Github repos](https://github.com/nwstephens/r-admin-2018/tree/master/bitcoin). For reference.
 2. [Data source](https://blockchain.info/api/exchange_rates_api). For reference.
