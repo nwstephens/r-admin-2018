@@ -1,0 +1,24 @@
+---
+title: "Data Lab"
+output: html_notebook
+---
+
+# Chapters {.tabset}
+
+## Tab 1
+
+sas
+
+## Tab 2
+
+```{r child = 'chapter1.Rmd'}
+```
+
+## Tab 3
+
+```{r child = 'chapter2.Rmd'}
+```
+
+## Tab 4
+
+abc
