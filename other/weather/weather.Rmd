@@ -1,0 +1,42 @@
+---
+title: "Weather"
+output: html_notebook
+---
+
+
+
+```{r, eval=FALSE}
+devtools::install_github("rich-iannone/stationaRy")
+library(stationaRy)
+library(dplyr)
+```
+
+```{r}
+met_data <- 
+  get_isd_station_data(
+    station_id = "13860-99999",
+    startyear = 2018,
+    endyear = 2018)
+met_data
+tail(met_data)
+```
+
+```{r}
+stations_norway <- 
+  get_isd_stations() %>% 
+  filter(country == "NO")
+stations_norway
+```
+
+```{r}
+high_temps_at_bergen_point_stn <- 
+  get_isd_stations() %>%
+  filter(name == "BERGEN POINT") %>%
+  get_station_ids %>%
+  get_isd_station_data(startyear = 2006, endyear = 2015) %>%
+  select(time, wd, ws, temp) %>% 
+  filter(temp > 37) %>%
+  mutate(temp_f = (temp * (9/5)) + 32)
+high_temps_at_bergen_point_stn
+```
+
