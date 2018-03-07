@@ -1,12 +1,30 @@
 ---
-title: "Data Science Lab with RStudio"
-subtitle: "Bitcoin"
+title: Data Science Lab with RStudio
+subtitle: Bitcoin
 output: html_document
 ---
 
 These files describe how to build a data lab with RStudio professional products.
 
-### Bitcoin
+### Datalab
+
+[01](http://colorado.rstudio.com/rsc/content/879/01-instance-setup.nb.html)
+
+[02](http://colorado.rstudio.com/rsc/content/880/02-instance-libraries.nb.html)
+
+[03](http://colorado.rstudio.com/rsc/content/881/03-datalab-R.nb.html)
+
+[04](http://colorado.rstudio.com/rsc/content/882/04-datalab-packages.nb.html)
+
+[05](http://colorado.rstudio.com/rsc/content/883/05-datalab-rstudio.nb.html)
+
+[06](http://colorado.rstudio.com/rsc/content/884/06-integration-database.nb.html)
+
+[07](http://colorado.rstudio.com/rsc/content/885/07-integration-webserver.nb.html)
+
+[08](http://colorado.rstudio.com/rsc/content/886/08-integration-email.nb.html)
+
+### Example
 
 [Github](https://github.com/nwstephens/r-admin-2018/tree/master/bitcoin)
 
@@ -24,20 +42,3 @@ These files describe how to build a data lab with RStudio professional products.
 
 [API](http://colorado.rstudio.com:3939/connect/#/apps/890/access)
 
-### Datalab
-
-[01]("http://colorado.rstudio.com/rsc/content/879/01-instance-setup.nb.html")
-
-[02]("http://colorado.rstudio.com/rsc/content/880/02-instance-libraries.nb.html")
-
-[03]("http://colorado.rstudio.com/rsc/content/881/03-datalab-R.nb.html")
-
-[04]("http://colorado.rstudio.com/rsc/content/882/04-datalab-packages.nb.html")
-
-[05]("http://colorado.rstudio.com/rsc/content/883/05-datalab-rstudio.nb.html")
-
-[06]("http://colorado.rstudio.com/rsc/content/884/06-integration-database.nb.html")
-
-[07]("http://colorado.rstudio.com/rsc/content/885/07-integration-webserver.nb.html")
-
-[08]("http://colorado.rstudio.com/rsc/content/886/08-integration-email.nb.html")
