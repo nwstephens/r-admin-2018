@@ -208,6 +208,7 @@ renderUI({
 * [TensorFlow](https://tensorflow.rstudio.com/)
 * [Keras](https://keras.rstudio.com/)
 * [Flexdashboard](https://rmarkdown.rstudio.com/flexdashboard/index.html)
+* [Plumber](https://www.rplumber.io/)
 
 <hr>
 
