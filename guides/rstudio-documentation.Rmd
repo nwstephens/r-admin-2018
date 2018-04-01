@@ -1,11 +1,11 @@
 ---
-title: "RStudio Documentation"
+title: "RStudio Admin Documentation"
 output: html_document
 runtime: shiny
 css: air.css
 ---
 
-![](RStudio-Ball.png)
+[![](RStudio-Ball.png)](https://www.rstudio.com/)
 
 <hr>
 
@@ -191,21 +191,141 @@ renderUI({
 
 <hr>
 
-### Reference
+### RStudio Professional Drivers
 
-* [RStudio pricing](https://www.rstudio.com/pricing/)
+*RStudio makes it easy to access and analyze your data with R. [RStudio Professional Drivers](https://support.rstudio.com/hc/en-us/articles/115011761688-Getting-Started-with-RStudio-Professional-Drivers) are ODBC data connectors that help you connect to some of the most popular databases.*
+
+[![](drivers.png)](https://support.rstudio.com/hc/en-us/articles/115011761688-Getting-Started-with-RStudio-Professional-Drivers)
+
+[**Getting Started with RStudio Professional Drivers**](https://support.rstudio.com/hc/en-us/articles/115011761688-Getting-Started-with-RStudio-Professional-Drivers)
+
+<hr>
+
+### Websites
+
+*RStudio maintains many subdomains that describe how to use specific packages.*
+
+* [Shiny](http://shiny.rstudio.com/)
+* [R Markdown](https://rmarkdown.rstudio.com/)
+* [The Tidyverse](https://www.tidyverse.org/)
+* [Spark](http://spark.rstudio.com/)
+* [Databases](http://db.rstudio.com/)
+* [TensorFlow](https://tensorflow.rstudio.com/)
+* [Keras](https://keras.rstudio.com/)
+* [Flexdashboard](https://rmarkdown.rstudio.com/flexdashboard/index.html)
+
+<hr>
+
+### Articles {.tabset}
+
+*[R Views](https://rviews.rstudio.com/) is a community blog edited by RStudio. The following articles are part of the category: [R for the Enterprise](https://rviews.rstudio.com/categories/r-for-the-enterprise/).*
+
+#### Data Lab
+
+* [Make R a Legitimate Part of Your Organization](https://rviews.rstudio.com/2016/11/16/make-r-a-legitimate-part-of-your-organization/)
+* [Analytics Administration for R](https://rviews.rstudio.com/2017/06/21/analytics-administration-for-r/)
+* [A Data Science Lab for R](https://rviews.rstudio.com/2017/12/20/rstudio-server-quick-start/)
+* [Multiple Versions of R](https://rviews.rstudio.com/2018/03/21/multiple-versions-of-r/)
+* [Understanding R's Startup](https://rviews.rstudio.com/2017/04/19/r-for-enterprise-understanding-r-s-startup/)
+
+<hr>
+
+#### Databases
+
+* [Databases Using R](https://rviews.rstudio.com/2017/05/17/databases-using-r/)
+* [Visualizations with R and Databases](https://rviews.rstudio.com/2017/08/16/visualizations-with-r-and-databases/)
+* [Enterprise Ready Dashboards with Shiny and Databases](https://rviews.rstudio.com/2017/09/20/dashboards-with-r-and-databases/)
+* [Database Queries with R](https://rviews.rstudio.com/2017/10/18/database-queries-with-r/)
+* [How to Scale Your Analytics Using R](https://rviews.rstudio.com/2016/12/21/r-for-enterprise-how-to-scale-your-analytics-using-r/)
+
+<hr>
+
+#### Packages
+
+* [Some Ideas for Your Internal R Packages](https://rviews.rstudio.com/2017/07/19/supporting-corporate-r-user-groups/)
+* [Package Management and Reproducible R Code](https://rviews.rstudio.com/2018/01/18/package-management-for-reproducible-r-code/)
+
+<hr>
+
+#### Content
+
+* [R Markdown for the Enterprise](https://rviews.rstudio.com/2017/01/25/r-markdown-for-the-enterprise/)
+* [Using Shiny with Scheduled and Streaming Data](https://rviews.rstudio.com/2017/11/15/shiny-and-scheduled-data-r/)
+* [Deep Learning at rstudio::conf 2018](https://rviews.rstudio.com/2018/02/14/deep-learning-rstudio-conf-2018/)
+
+<hr>
+
+### Webinars {.tabset}
+
+*[RStudio webinars](https://www.rstudio.com/resources/webinars/) and videos are presented on a variety of subjects. [Archives](https://www.rstudio.com/resources/webinars/) and associated [materials](https://github.com/rstudio/webinars) can be found online.*
+
+#### RStudio
+
+* [Administering RStudio Server Pro](https://www.rstudio.com/resources/webinars/administering-rstudio-server-pro/)
+* [RStudio Server Pro 1.1 New Features](https://www.rstudio.com/resources/videos/rstudio-server-pro-1-1-new-features/)
+
+<hr>
+
+#### Connect
+
+* [Administration of RStudio Connect in Production](https://www.rstudio.com/resources/webinars/administration-of-rstudio-connect-in-production/)
+* [The Tidyverse and RStudio Connect](https://www.rstudio.com/resources/webinars/the-tidyverse-and-rstudio-connect/)
+* [RStudio Connect Internals - The Basics](https://www.rstudio.com/resources/webinars/rstudio-connect-internals-the-basics/)
+
+<hr>
+
+#### Shiny
+
+* [Administering Shiny Server Pro](https://www.rstudio.com/resources/webinars/administering-shiny-server-pro/)
+* [Scaling Shiny](https://www.rstudio.com/resources/videos/scaling-shiny/)
+
+<hr>
+
+#### Data Science
+
+* [The R Admin](https://www.rstudio.com/resources/videos/the-r-admin-is-rad-a-guide-to-professional-r-tooling-and-integration/)
+* [Best Practices for working with R and Databases](https://www.rstudio.com/resources/videos/best-practices-for-working-with-databases-webinar/)
+
+<hr>
+
+#### Spark
+
+* [Introducing an R Interface for Apache Spark](https://www.rstudio.com/resources/webinars/introducing-an-r-interface-for-apache-spark/)
+* [Extending Spark Using Sparklyr and R](https://www.rstudio.com/resources/webinars/extending-spark-using-sparklyr-and-r/)
+* [Advanced Features of Sparklyr](https://www.rstudio.com/resources/webinars/advanced-features-of-sparklyr/)
+* [Understanding Sparklyr Deployment Modes](https://www.rstudio.com/resources/webinars/understanding-sparklyr-deployment-modes/)
+
+<hr>
+
+### References
+
+*Additional references can be found here:*
+
 * [RStudio EULA](https://www.rstudio.com/about/eula/)
-* [Platform deprication strategy](https://www.rstudio.com/about/platform-deprecation-strategy/)
-* [RStudio Professional Drivers](https://support.rstudio.com/hc/en-us/articles/115011761688-Getting-Started-with-RStudio-Professional-Drivers)
-* [RStudio webinars](https://www.rstudio.com/resources/webinars/)
-* [Useful articles](https://rviews.rstudio.com/categories/r-for-the-enterprise/)
+* [Platform deprecation strategy](https://www.rstudio.com/about/platform-deprecation-strategy/)
+* [Who we are and what we do](https://www.rstudio.com/about/#cf0e2a85345e0767f)
+* [Why are people so excited about R?](http://colorado.rstudio.com:3939/content/1012/excited-about-R.html)
 
 <hr>
 
 ### Support
 
+*RStudio has a mission to provide the most widely used open source and enterprise-ready professional software for the R statistical computing environment. We offer open source and enterprise ready tools for the R computing environment. For professional support help, please contact support@rstudio.com* 
+
 * [RStudio Support](https://support.rstudio.com/hc/en-us)
 * [Community Support](https://community.rstudio.com/)
 * [Support Agreement](https://www.rstudio.com/about/support-agreement/)
-* For professional support help, please contact: *support@rstudio.com*
 
+<hr>
+
+### Sales and Pricing
+
+*RStudio professional on-premises software products improve your experience with R and have the enterprise grade security, priority support, and commercial license your organization expects. All professional server and desktop products are [priced on an annual subscription basis](https://www.rstudio.com/pricing/).*
+
+[![](sales.png)](https://www.rstudio.com/about/contact-sales/)
+
+<hr>
+
+*<small>[RStudio, Inc.](https://www.rstudio.com/)<br>250 Northern Ave, Boston, MA 02210<br>844-448-1212</small>*
+
+*<small>Copyright 2018 RStudio | All Rights Reserved | [Legal Terms](https://www.rstudio.com/about/eula/)</small>*
