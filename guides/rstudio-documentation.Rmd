@@ -46,12 +46,9 @@ path_rsp <- function(version, ...){
 renderUI({
   v <- input$version_rsp
   tagList(
-    tags$a(href = path_rsp(v), "HTML"),
-    tags$em(" | "),
-    tags$a(href = path_rsp(v, ".pdf"), "PDF"),
-    tags$em(" | "),
-    tags$a(href = path_rsp(v, ".epub"), "EPUB"),
-    tags$em(" | "),
+    tags$a(href = path_rsp(v), "HTML"), " | ",
+    tags$a(href = path_rsp(v, ".pdf"), "PDF"), " | ",
+    tags$a(href = path_rsp(v, ".epub"), "EPUB"), " | ",
     tags$a(href = path_rsp(v, ".mobi"), "MOBI"),
     tags$hr()
   )
@@ -98,8 +95,7 @@ path_rsc <- function(version, ...){
 renderUI({
   v <- input$version_rsc
   tagList(
-    tags$a(href = path_rsc(v), "HTML"),
-    tags$em(" | "),
+    tags$a(href = path_rsc(v), "HTML"), " | ",
     tags$a(href = path_rsc(v, "-", subversion_rsc[match(v, version_rsc)], ".pdf"), "PDF"),
     tags$hr()
   )
@@ -172,8 +168,7 @@ path_rspm <- function(version, ...){
 renderUI({
   v <- input$version_rspm
   tagList(
-    tags$a(href = path_rspm(v), "HTML"),
-    tags$em(" | "),
+    tags$a(href = path_rspm(v), "HTML"), " | ",
     tags$a(href = path_rspm(v, "-", subversion_rspm[match(v, version_rspm)], ".pdf"), "PDF"),
     tags$hr()
   )
@@ -247,7 +242,7 @@ renderUI({
 
 <hr>
 
-#### Content
+#### User Content
 
 * [R Markdown for the Enterprise](https://rviews.rstudio.com/2017/01/25/r-markdown-for-the-enterprise/)
 * [Using Shiny with Scheduled and Streaming Data](https://rviews.rstudio.com/2017/11/15/shiny-and-scheduled-data-r/)
@@ -259,14 +254,14 @@ renderUI({
 
 *[RStudio webinars](https://www.rstudio.com/resources/webinars/) and videos are presented on a variety of subjects. [Archives](https://www.rstudio.com/resources/webinars/) and associated [materials](https://github.com/rstudio/webinars) can be found online.*
 
-#### RStudio
+#### RStudio IDE
 
 * [Administering RStudio Server Pro](https://www.rstudio.com/resources/webinars/administering-rstudio-server-pro/)
 * [RStudio Server Pro 1.1 New Features](https://www.rstudio.com/resources/videos/rstudio-server-pro-1-1-new-features/)
 
 <hr>
 
-#### Connect
+#### RStudio Connect
 
 * [Administration of RStudio Connect in Production](https://www.rstudio.com/resources/webinars/administration-of-rstudio-connect-in-production/)
 * [The Tidyverse and RStudio Connect](https://www.rstudio.com/resources/webinars/the-tidyverse-and-rstudio-connect/)
@@ -326,6 +321,6 @@ renderUI({
 
 <hr>
 
-*<small>[RStudio, Inc.](https://www.rstudio.com/)<br>250 Northern Ave, Boston, MA 02210<br>844-448-1212</small>*
+<small>[RStudio, Inc.](https://www.rstudio.com/)<br>250 Northern Ave, Boston, MA 02210<br>844-448-1212</small>
 
-*<small>Copyright 2018 RStudio | All Rights Reserved | [Legal Terms](https://www.rstudio.com/about/eula/)</small>*
+<small>Copyright 2018 RStudio | All Rights Reserved | [Legal Terms](https://www.rstudio.com/about/eula/)</small>
