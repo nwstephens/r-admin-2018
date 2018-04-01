@@ -1,0 +1,211 @@
+---
+title: "RStudio Documentation"
+output: html_document
+runtime: shiny
+css: air.css
+---
+
+![](RStudio-Ball.png)
+
+<hr>
+
+### RStudio Server Pro
+
+*RStudio is the premier IDE for R. RStudio Server lets you access RStudio from anywhere using a web browser. [RStudio Server Pro](https://www.rstudio.com/products/rstudio-server-pro/) delivers the team productivity, security, centralized management, metrics, and commercial support that professional data science teams need to develop at scale.*
+
+[![](rsp.png)](http://docs.rstudio.com/ide/server-pro/)
+
+[**RStudio Server Professional Edition Administration Guide** [Current]](http://docs.rstudio.com/ide/server-pro/)
+
+
+
+```{r, echo=FALSE}
+
+version_rsp <- c("1.1.442", "1.1.423", "1.1.419", "1.1.414", "1.1.383", "1.0.153",
+                 "1.0.143", "1.0.136", "1.0.44", "0.99.903", "0.99.902", "0.99.896",
+                 "0.99.893", "0.99.892", "0.99.891")
+
+inputPanel(selectInput("version_rsp", label = "Older Versions", choices = version_rsp))
+
+# http://docs.rstudio.com/ide/server-pro/1.1.442	
+# http://docs.rstudio.com/ide/server-pro/1.1.442/rstudio-server-pro-1.1.442-admin-guide.pdf	
+# http://docs.rstudio.com/ide/server-pro/1.1.442/rstudio-server-pro-1.1.442-admin-guide.epub
+# http://docs.rstudio.com/ide/server-pro/1.1.442/rstudio-server-pro-1.1.442-admin-guide.mobi
+
+path_rsp <- function(version, ...){
+  x1 <- "http://docs.rstudio.com/ide/server-pro/"
+  x2 <- "/rstudio-server-pro-"
+  x3 <- "-admin-guide"
+  if(missing(...)){
+    paste0(x1, version)
+  } else {
+    paste0(x1, version, x2, version, x3, ...)
+  }
+}
+
+renderUI({
+  v <- input$version_rsp
+  tagList(
+    tags$a(href = path_rsp(v), "HTML"),
+    tags$em(" | "),
+    tags$a(href = path_rsp(v, ".pdf"), "PDF"),
+    tags$em(" | "),
+    tags$a(href = path_rsp(v, ".epub"), "EPUB"),
+    tags$em(" | "),
+    tags$a(href = path_rsp(v, ".mobi"), "MOBI"),
+    tags$hr()
+  )
+})
+```
+
+
+### RStudio Connect
+
+*[RStudio Connect](https://www.rstudio.com/products/connect/) is a new publishing platform for the work your teams create in R. Share Shiny applications, R Markdown reports, Plumber APIs, dashboards, plots, and more in one convenient place. Use push-button publishing from the RStudio IDE, scheduled execution of reports, and flexible security policies to bring the power of data science to your entire enterprise.*
+
+[![](rsc.png)](http://docs.rstudio.com/connect/admin/)
+
+[**RStudio Connect: Admin Guide** [Current]](http://docs.rstudio.com/connect/admin/)
+
+
+```{r, echo=FALSE}
+
+fullversion_rsc <- c("1.5.14-6", "1.5.12.1-10", "1.5.12-7", "1.5.10-6", "1.5.8-12", "1.5.6.2-13", 
+                     "1.5.6.1-9", "1.5.6-7", "1.5.4-13", "1.5.2-25", "1.5.0-8", "1.4.6-11", "1.4.4.1-16", 
+                     "1.4.4-4", "1.4.2-15", "1.4.0-18", "1.2.1-28", "1.2.0-22")
+
+fullversion_rsc <- strsplit(fullversion_rsc, "-")
+version_rsc <- sapply(fullversion_rsc, function(x) x[1])
+subversion_rsc <- sapply(fullversion_rsc, function(x) x[2])
+
+inputPanel(selectInput("version_rsc", label = "Older Versions", choices = version_rsc))
+
+# http://docs.rstudio.com/connect/1.5.14/admin/
+# http://docs.rstudio.com/connect/1.5.14/admin/rstudio-connect-admin-guide-1.5.14-6.pdf
+
+path_rsc <- function(version, ...){
+  if(version == "Current") version <- NULL
+  x1 <- "http://docs.rstudio.com/connect/"
+  x2 <- "/admin/"
+  x3 <- "rstudio-connect-admin-guide-"
+  if(missing(...)){
+    paste0(x1, version, x2)
+  } else {
+    paste0(x1, version, x2, x3, version, ...)
+  }
+}
+
+renderUI({
+  v <- input$version_rsc
+  tagList(
+    tags$a(href = path_rsc(v), "HTML"),
+    tags$em(" | "),
+    tags$a(href = path_rsc(v, "-", subversion_rsc[match(v, version_rsc)], ".pdf"), "PDF"),
+    tags$hr()
+  )
+})
+```
+
+
+
+### Shiny Server Pro
+
+*Shiny combines the computational power of R with the interactivity of the modern web. Professional data science teams choose [Shiny Server Pro](https://www.rstudio.com/products/shiny-server-pro/) to share their shiny applications, secure user access, tune performance, monitor resource utilization and get the direct support they need to create the best interactive data experiences for their customers and colleagues.*
+
+[![](shiny.png)](http://docs.rstudio.com/shiny-server/)
+
+[**Shiny Server Professional Administrator's Guide** [Current]](http://docs.rstudio.com/shiny-server/)
+
+
+```{r, echo=FALSE}
+
+version_ssp <- c("1.5.6", "1.5.5", "1.5.4", "1.5.3", "1.5.2", "1.5.1", "1.5.0", "1.4.7")
+
+inputPanel(selectInput("version_ssp", label = "Older Versions", choices = version_ssp))
+
+# http://docs.rstudio.com/shiny-server/1.5.6
+
+renderUI({
+  v <- input$version_ssp
+  tagList(
+    tags$a(href = paste0("http://docs.rstudio.com/shiny-server/", v), "HTML"),
+    tags$hr()
+  )
+})
+```
+
+
+
+### RStudio Package Manager
+
+*[RStudio Package Manager](https://www.rstudio.com/products/package-manager/) is a new repository management server for R packages. Get offline access to CRAN, automate CRAN syncs, share local packages, restrict package access, find packages across repositories, and more. Experience reliable and consistent package management, optimized for teams who use R.*
+
+[![](packages.jpg)](http://docs.rstudio.com/rspm/admin/)
+
+[**RStudio Package Manager: Admin Guide** [Current]](http://docs.rstudio.com/rspm/admin/)
+
+
+```{r, echo=FALSE}
+
+fullversion_rspm <- c("0.3.0-4", "0.2.0-10", "0.1.0-5")
+
+fullversion_rspm <- strsplit(fullversion_rspm, "-")
+version_rspm <- sapply(fullversion_rspm, function(x) x[1])
+subversion_rspm <- sapply(fullversion_rspm, function(x) x[2])
+
+inputPanel(selectInput("version_rspm", label = "Older Versions", choices = version_rspm))
+
+# http://docs.rstudio.com/rspm/0.3.0/admin/
+# http://docs.rstudio.com/rspm/admin/rstudio-pm-admin-guide-0.3.0-4.pdf
+
+path_rspm <- function(version, ...){
+  x1 <- "http://docs.rstudio.com/rspm/"
+  x2 <- "/admin/"
+  x3 <- "rstudio-pm-admin-guide-"
+  if(missing(...)){
+    paste0(x1, version, x2)
+  } else {
+    paste0(x1, version, x2, x3, version, ...)
+  }
+}
+
+renderUI({
+  v <- input$version_rspm
+  tagList(
+    tags$a(href = path_rspm(v), "HTML"),
+    tags$em(" | "),
+    tags$a(href = path_rspm(v, "-", subversion_rspm[match(v, version_rspm)], ".pdf"), "PDF"),
+    tags$hr()
+  )
+})
+
+```
+
+### Shinyapps.io
+
+*Share your Shiny apps online. Deploy your Shiny applications online in minutes with [shinyapps.io](https://www.rstudio.com/products/shinyapps/).*
+
+[![](shinyapps.png)](http://docs.rstudio.com/shinyapps.io/)
+
+[**Shinyapps.io User Guide**](http://docs.rstudio.com/shinyapps.io/)
+
+<hr>
+
+### Reference
+
+* [RStudio pricing](https://www.rstudio.com/pricing/)
+* [RStudio EULA](https://www.rstudio.com/about/eula/)
+* [Platform deprication strategy](https://www.rstudio.com/about/platform-deprecation-strategy/)
+* [RStudio Professional Drivers](https://support.rstudio.com/hc/en-us/articles/115011761688-Getting-Started-with-RStudio-Professional-Drivers)
+* [RStudio webinars](https://www.rstudio.com/resources/webinars/)
+* [Useful articles](https://rviews.rstudio.com/categories/r-for-the-enterprise/)
+
+<hr>
+
+### Support
+
+* [RStudio Support](https://support.rstudio.com/hc/en-us)
+* [Community Support](https://community.rstudio.com/)
+* [Support Agreement](https://www.rstudio.com/about/support-agreement/)
+* For professional support help, please contact: *support@rstudio.com*
+
