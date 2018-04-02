@@ -1,6 +1,7 @@
 ---
 title: "RStudio Admin Documentation"
 output: html_document
+runtime: shiny
 css: air.css
 ---
 
@@ -16,28 +17,44 @@ css: air.css
 
 [**RStudio Server Professional Edition Administration Guide** [Current]](http://docs.rstudio.com/ide/server-pro/)
 
-<small>
-[**Prior Releases**](https://support.rstudio.com/hc/en-us/articles/200716783-RStudio-Release-History)
-<br>
-[1.1.442](http://docs.rstudio.com/ide/server-pro/1.1.442/rstudio-server-pro-1.1.442-admin-guide.pdf) |
-[1.1.423](http://docs.rstudio.com/ide/server-pro/1.1.423/rstudio-server-pro-1.1.423-admin-guide.pdf) |
-[1.1.419](http://docs.rstudio.com/ide/server-pro/1.1.419/rstudio-server-pro-1.1.419-admin-guide.pdf) |
-[1.1.414](http://docs.rstudio.com/ide/server-pro/1.1.414/rstudio-server-pro-1.1.414-admin-guide.pdf) |
-[1.1.383](http://docs.rstudio.com/ide/server-pro/1.1.383/rstudio-server-pro-1.1.383-admin-guide.pdf) |
-[1.0.153](http://docs.rstudio.com/ide/server-pro/1.0.153/rstudio-server-pro-1.0.153-admin-guide.pdf) |
-[1.0.143](http://docs.rstudio.com/ide/server-pro/1.0.143/rstudio-server-pro-1.0.143-admin-guide.pdf) |
-[1.0.136](http://docs.rstudio.com/ide/server-pro/1.0.136/rstudio-server-pro-1.0.136-admin-guide.pdf) |
-<br>
-[1.0.44](http://docs.rstudio.com/ide/server-pro/1.0.44/rstudio-server-pro-1.0.44-admin-guide.pdf) |
-[0.99.903](http://docs.rstudio.com/ide/server-pro/0.99.903/rstudio-server-pro-0.99.903-admin-guide.pdf) |
-[0.99.902](http://docs.rstudio.com/ide/server-pro/0.99.902/rstudio-server-pro-0.99.902-admin-guide.pdf) |
-[0.99.896](http://docs.rstudio.com/ide/server-pro/0.99.896/rstudio-server-pro-0.99.896-admin-guide.pdf) |
-[0.99.893](http://docs.rstudio.com/ide/server-pro/0.99.893/rstudio-server-pro-0.99.893-admin-guide.pdf) |
-[0.99.892](http://docs.rstudio.com/ide/server-pro/0.99.892/rstudio-server-pro-0.99.892-admin-guide.pdf) |
-[0.99.891](http://docs.rstudio.com/ide/server-pro/0.99.891/rstudio-server-pro-0.99.891-admin-guide.pdf)
-</small>
 
-<hr>
+
+```{r, echo=FALSE}
+
+version_rsp <- c("1.1.442", "1.1.423", "1.1.419", "1.1.414", "1.1.383", "1.0.153",
+                 "1.0.143", "1.0.136", "1.0.44", "0.99.903", "0.99.902", "0.99.896",
+                 "0.99.893", "0.99.892", "0.99.891")
+
+inputPanel(selectInput("version_rsp", label = "Older Versions", choices = version_rsp))
+
+# http://docs.rstudio.com/ide/server-pro/1.1.442	
+# http://docs.rstudio.com/ide/server-pro/1.1.442/rstudio-server-pro-1.1.442-admin-guide.pdf	
+# http://docs.rstudio.com/ide/server-pro/1.1.442/rstudio-server-pro-1.1.442-admin-guide.epub
+# http://docs.rstudio.com/ide/server-pro/1.1.442/rstudio-server-pro-1.1.442-admin-guide.mobi
+
+path_rsp <- function(version, ...){
+  x1 <- "http://docs.rstudio.com/ide/server-pro/"
+  x2 <- "/rstudio-server-pro-"
+  x3 <- "-admin-guide"
+  if(missing(...)){
+    paste0(x1, version)
+  } else {
+    paste0(x1, version, x2, version, x3, ...)
+  }
+}
+
+renderUI({
+  v <- input$version_rsp
+  tagList(
+    tags$a(href = path_rsp(v), "HTML"), " | ",
+    tags$a(href = path_rsp(v, ".pdf"), "PDF"), " | ",
+    tags$a(href = path_rsp(v, ".epub"), "EPUB"), " | ",
+    tags$a(href = path_rsp(v, ".mobi"), "MOBI"),
+    tags$hr()
+  )
+})
+```
+
 
 ### RStudio Connect
 
@@ -47,32 +64,45 @@ css: air.css
 
 [**RStudio Connect: Admin Guide** [Current]](http://docs.rstudio.com/connect/admin/)
 
-<small>
-[**Prior Releases**](http://docs.rstudio.com/connect/news/)
-<br>
-[1.5.14](http://docs.rstudio.com/connect/1.5.14/admin/rstudio-connect-admin-guide-1.5.14-6.pdf) |
-[1.5.12.1](http://docs.rstudio.com/connect/1.5.12.1/admin/rstudio-connect-admin-guide-1.5.12.1-10.pdf) |
-[1.5.12](http://docs.rstudio.com/connect/1.5.12/admin/rstudio-connect-admin-guide-1.5.12-7.pdf) |
-[1.5.10](http://docs.rstudio.com/connect/1.5.10/admin/rstudio-connect-admin-guide-1.5.10-6.pdf) |
-[1.5.8](http://docs.rstudio.com/connect/1.5.8/admin/rstudio-connect-admin-guide-1.5.8-12.pdf) |
-[1.5.6.2](http://docs.rstudio.com/connect/1.5.6.2/admin/rstudio-connect-admin-guide-1.5.6.2-13.pdf) |
-[1.5.6.1](http://docs.rstudio.com/connect/1.5.6.1/admin/rstudio-connect-admin-guide-1.5.6.1-9.pdf) |
-[1.5.6](http://docs.rstudio.com/connect/1.5.6/admin/rstudio-connect-admin-guide-1.5.6-7.pdf) |
-<br>
-[1.5.4](http://docs.rstudio.com/connect/1.5.4/admin/rstudio-connect-admin-guide-1.5.4-13.pdf) |
-[1.5.2](http://docs.rstudio.com/connect/1.5.2/admin/rstudio-connect-admin-guide-1.5.2-25.pdf) |
-[1.5.0](http://docs.rstudio.com/connect/1.5.0/admin/rstudio-connect-admin-guide-1.5.0-8.pdf) |
-[1.4.6](http://docs.rstudio.com/connect/1.4.6/admin/rstudio-connect-admin-guide-1.4.6-11.pdf) |
-[1.4.4.1](http://docs.rstudio.com/connect/1.4.4.1/admin/rstudio-connect-admin-guide-1.4.4.1-16.pdf) |
-[1.4.4](http://docs.rstudio.com/connect/1.4.4/admin/rstudio-connect-admin-guide-1.4.4-4.pdf) |
-[1.4.2](http://docs.rstudio.com/connect/1.4.2/admin/rstudio-connect-admin-guide-1.4.2-15.pdf) |
-[1.4.0](http://docs.rstudio.com/connect/1.4.0/admin/rstudio-connect-admin-guide-1.4.0-18.pdf) |
-<br>
-[1.2.1](http://docs.rstudio.com/connect/1.2.1/admin/rstudio-connect-admin-guide-1.2.1-28.pdf) |
-[1.2.0](http://docs.rstudio.com/connect/1.2.0/admin/rstudio-connect-admin-guide-1.2.0-22.pdf)
-</small>
 
-<hr>
+```{r, echo=FALSE}
+
+fullversion_rsc <- c("1.5.14-6", "1.5.12.1-10", "1.5.12-7", "1.5.10-6", "1.5.8-12", "1.5.6.2-13", 
+                     "1.5.6.1-9", "1.5.6-7", "1.5.4-13", "1.5.2-25", "1.5.0-8", "1.4.6-11", "1.4.4.1-16", 
+                     "1.4.4-4", "1.4.2-15", "1.4.0-18", "1.2.1-28", "1.2.0-22")
+
+fullversion_rsc <- strsplit(fullversion_rsc, "-")
+version_rsc <- sapply(fullversion_rsc, function(x) x[1])
+subversion_rsc <- sapply(fullversion_rsc, function(x) x[2])
+
+inputPanel(selectInput("version_rsc", label = "Older Versions", choices = version_rsc))
+
+# http://docs.rstudio.com/connect/1.5.14/admin/
+# http://docs.rstudio.com/connect/1.5.14/admin/rstudio-connect-admin-guide-1.5.14-6.pdf
+
+path_rsc <- function(version, ...){
+  if(version == "Current") version <- NULL
+  x1 <- "http://docs.rstudio.com/connect/"
+  x2 <- "/admin/"
+  x3 <- "rstudio-connect-admin-guide-"
+  if(missing(...)){
+    paste0(x1, version, x2)
+  } else {
+    paste0(x1, version, x2, x3, version, ...)
+  }
+}
+
+renderUI({
+  v <- input$version_rsc
+  tagList(
+    tags$a(href = path_rsc(v), "HTML"), " | ",
+    tags$a(href = path_rsc(v, "-", subversion_rsc[match(v, version_rsc)], ".pdf"), "PDF"),
+    tags$hr()
+  )
+})
+```
+
+
 
 ### Shiny Server Pro
 
@@ -82,20 +112,25 @@ css: air.css
 
 [**Shiny Server Professional Administrator's Guide** [Current]](http://docs.rstudio.com/shiny-server/)
 
-<small>
-[**Prior Releases**](https://support.rstudio.com/hc/en-us/articles/215642837-Shiny-Server-Pro-Release-History)
-<br>
-[1.5.6](http://docs.rstudio.com/shiny-server/1.5.6) |
-[1.5.5](http://docs.rstudio.com/shiny-server/1.5.5) |
-[1.5.4](http://docs.rstudio.com/shiny-server/1.5.4) |
-[1.5.3](http://docs.rstudio.com/shiny-server/1.5.3) |
-[1.5.2](http://docs.rstudio.com/shiny-server/1.5.2) |
-[1.5.1](http://docs.rstudio.com/shiny-server/1.5.1) |
-[1.5.0](http://docs.rstudio.com/shiny-server/1.5.0) |
-[1.4.7](http://docs.rstudio.com/shiny-server/1.4.7)
-</small>
 
-<hr>
+```{r, echo=FALSE}
+
+version_ssp <- c("1.5.6", "1.5.5", "1.5.4", "1.5.3", "1.5.2", "1.5.1", "1.5.0", "1.4.7")
+
+inputPanel(selectInput("version_ssp", label = "Older Versions", choices = version_ssp))
+
+# http://docs.rstudio.com/shiny-server/1.5.6
+
+renderUI({
+  v <- input$version_ssp
+  tagList(
+    tags$a(href = paste0("http://docs.rstudio.com/shiny-server/", v), "HTML"),
+    tags$hr()
+  )
+})
+```
+
+
 
 ### RStudio Package Manager
 
@@ -105,15 +140,41 @@ css: air.css
 
 [**RStudio Package Manager: Admin Guide** [Current]](http://docs.rstudio.com/rspm/admin/)
 
-<small>
-[**Prior Releases**](http://docs.rstudio.com/rspm/news/)
-<br>
-[0.3.0](http://docs.rstudio.com/rspm/admin/rstudio-pm-admin-guide-0.3.0-4.pdf) |
-[0.2.0](http://docs.rstudio.com/rspm/admin/rstudio-pm-admin-guide-0.2.0-10.pdf) |
-[0.1.0](http://docs.rstudio.com/rspm/admin/rstudio-pm-admin-guide-0.1.0-5.pdf)
-</small>
 
-<hr>
+```{r, echo=FALSE}
+
+fullversion_rspm <- c("0.3.0-4", "0.2.0-10", "0.1.0-5")
+
+fullversion_rspm <- strsplit(fullversion_rspm, "-")
+version_rspm <- sapply(fullversion_rspm, function(x) x[1])
+subversion_rspm <- sapply(fullversion_rspm, function(x) x[2])
+
+inputPanel(selectInput("version_rspm", label = "Older Versions", choices = version_rspm))
+
+# http://docs.rstudio.com/rspm/0.3.0/admin/
+# http://docs.rstudio.com/rspm/admin/rstudio-pm-admin-guide-0.3.0-4.pdf
+
+path_rspm <- function(version, ...){
+  x1 <- "http://docs.rstudio.com/rspm/"
+  x2 <- "/admin/"
+  x3 <- "rstudio-pm-admin-guide-"
+  if(missing(...)){
+    paste0(x1, version, x2)
+  } else {
+    paste0(x1, version, x2, x3, version, ...)
+  }
+}
+
+renderUI({
+  v <- input$version_rspm
+  tagList(
+    tags$a(href = path_rspm(v), "HTML"), " | ",
+    tags$a(href = path_rspm(v, "-", subversion_rspm[match(v, version_rspm)], ".pdf"), "PDF"),
+    tags$hr()
+  )
+})
+
+```
 
 ### Shinyapps.io
 
