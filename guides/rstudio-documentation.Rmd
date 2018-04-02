@@ -4,7 +4,7 @@ output: html_document
 css: air.css
 ---
 
-[![](RStudio-Ball.png)](https://www.rstudio.com/)
+[![](rstudio2.png)](https://www.rstudio.com/)
 
 <hr>
 
