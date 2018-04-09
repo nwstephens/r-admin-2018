@@ -16,7 +16,7 @@ sudo apt-get install postgresql postgresql-contrib
 
 ### Configure
 
-Create a database user called `rstudio`. Note that this database user is not the same user as the Linux user. Create a new database called `testb`. Create a new password and test the connection.
+Create a database user called `rstudio`. Note that this database user is not the same user as the Linux user. Create a new database called `bitcoin`. Create a new password and test the connection.
 
 ```{bash}
 ### Create a new user called 'rstudio'
@@ -24,7 +24,7 @@ sudo -u postgres createuser --interactive
 # rstudioadmin
 # y
 
-### Create a new database called 'testdb'
+### Create a new database called 'bitcoin'
 sudo -u postgres createdb bitcoin
 
 ### Create a new password
@@ -50,7 +50,7 @@ Enter the following information, save, and close.
 [Postgres (local)]
 Driver = postgresql
 server = localhost
-Database = testdb
+Database = bitcoin
 UID = rstudio
 PWD = mypassword
 ```
