@@ -24,7 +24,7 @@ sudo -u postgres createuser --interactive
 # rstudioadmin
 # y
 
-### Create a new database called 'testdb'
+### Create a new database called 'bitcoin'
 sudo -u postgres createdb bitcoin
 
 ### Create a new password
@@ -50,7 +50,7 @@ Enter the following information, save, and close.
 [Postgres (local)]
 Driver = postgresql
 server = localhost
-Database = testdb
+Database = bitcoin
 UID = rstudio
 PWD = mypassword
 ```
@@ -67,7 +67,7 @@ con1 <- dbConnect(odbc::odbc(),
                   Driver = "postgresql", 
                   Server = "localhost", 
                   Port = "5432", 
-                  Database = "bitcoin", 
+                  Database = "bitcoin2", 
                   UID = "rstudio", 
                   PWD = rstudioapi::askForPassword("Database password:"))
 

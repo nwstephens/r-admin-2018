@@ -82,7 +82,7 @@ sudo systemctl restart rstudio-connect
 sudo wget https://s3.amazonaws.com/rstudio-connect/centos6.3/x86_64/rstudio-connect-0.3.819-rh6-x86_64.rpm
 
 # Install
-sudo gdebi centos6.3/x86_64/rstudio-connect-0.3.819-rh6-x86_64.rpm
+sudo yum install centos6.3/x86_64/rstudio-connect-0.3.819-rh6-x86_64.rpm
 
 # Configure
 echo "
