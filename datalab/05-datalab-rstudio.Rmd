@@ -32,10 +32,10 @@ sudo rstudio-server restart
 
 ```{bash}
 # Download
-sudo wget https://download2.rstudio.org/rstudio-server-rhel-pro-0.99.483-x86_64.rpm
+sudo wget https://download2.rstudio.org/rstudio-server-rhel-pro-1.1.447-x86_64.rpm
 
 # Install
-sudo yum install --nogpgcheck rstudio-server-rhel-pro-0.99.483-x86_64.rpm
+sudo yum install --nogpgcheck rstudio-server-rhel-pro-1.1.447-x86_64.rpm
 
 # Configure
 echo "

@@ -67,7 +67,7 @@ con1 <- dbConnect(odbc::odbc(),
                   Driver = "postgresql", 
                   Server = "localhost", 
                   Port = "5432", 
-                  Database = "bitcoin2", 
+                  Database = "bitcoin", 
                   UID = "rstudio", 
                   PWD = rstudioapi::askForPassword("Database password:"))
 

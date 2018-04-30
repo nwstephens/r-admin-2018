@@ -19,7 +19,7 @@ ssh -i ~/.ssh/my.pem ubuntu@<my-server-ip>
 
 ### RedHat / CentOS
 ```{bash}
-ssh -i ~/.ssh/my.pem ec2-user@<my-server-ip>
+ssh -i ~/.ssh/my.pem root-user@<my-server-ip>
 ```
 
 ## Update your system
