@@ -19,7 +19,9 @@ Content Type | Data Lab Capability |  Systems Integration
 3. R Markdown Report | Create dynamic, self-serve reports | Email on demand or scheduled
 4. Plumber API | Easily host multiple endpoints and output types | REST call
 
-In order to pull the bitcoin files from the parent repository, execute the following commands.  More info on git submodules is available [here](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
+### Getting Started
+
+In order to access the bitcoin files, execute the following commands.  More info on git submodules is available [here](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
 
 ```
 git submodule init
