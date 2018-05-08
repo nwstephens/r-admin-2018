@@ -4,7 +4,7 @@ library(dplyr)
 library(tidyr)
 library(purrr)
 
-f <- function(x){
+pulldata <- function(x){
   get_bucket(
     bucket = 'docs.rstudio.com',
     prefix = x,
@@ -12,10 +12,19 @@ f <- function(x){
   )
 }
 
+prods <- c(
+  "rspm/admin/rstudio-pm", 
+  "connect/admin/rstudio-connect", 
+  "ide/server-pro/rstudio-server-pro",
+  "shiny-server/1"
+  )
+
+dat <- map(prods, pulldata)
+
 # RSPM
-#' @get /rspm
+#' @get /RSPM
 function(x){
-f("rspm/admin/rstudio-pm") %>%
+dat[[1]] %>%
   map_chr("Key") %>%
   as_tibble %>%
   filter(grepl("rstudio.*\\.pdf$", value)) %>%
@@ -33,9 +42,9 @@ f("rspm/admin/rstudio-pm") %>%
 }
 
 # RSC
-#' @get /rsc
+#' @get /RSC
 function(x){
-f("connect/admin/rstudio-connect") %>%
+dat[[2]] %>%
   map_chr("Key") %>%
   as_tibble %>%
   filter(grepl("rstudio.*\\.pdf$", value)) %>%
@@ -54,10 +63,10 @@ f("connect/admin/rstudio-connect") %>%
   select(url, version, build)
 }
 
-# IDE
-#' @get /ide
+# RSP
+#' @get /RSP
 function(x){
-f("ide/server-pro/rstudio-server-pro") %>%
+dat[[3]] %>%
   map_chr("Key") %>%
   as_tibble %>%
   filter(grepl("rstudio.*\\.pdf$", value)) %>%
@@ -70,6 +79,23 @@ f("ide/server-pro/rstudio-server-pro") %>%
     version,
     "-admin-guide.pdf")
     ) %>%
+  select(url, version)
+}
+
+# SSP
+#' @get /SSP
+function(x){
+dat[[4]] %>%
+  map_chr("Key") %>%
+  as_tibble %>%
+  filter(grepl("shiny.*\\.pdf$", value)) %>%
+  separate(value, letters[1:3], sep = "/") %>%
+  rename(version = b) %>%
+  mutate(url = paste0(
+    "http://docs.rstudio.com/shiny-server/",
+    version,
+    "/index.pdf")
+  ) %>%
   select(url, version)
 }
 
