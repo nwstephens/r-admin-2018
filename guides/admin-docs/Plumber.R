@@ -12,11 +12,20 @@ library(stringr)
 
 timestamp1 <- date()
 
-prods <- c(
-  "rspm/admin/rstudio-pm", 
-  "connect/admin/rstudio-connect", 
-  "ide/server-pro/rstudio-server-pro",
-  "shiny-server/1"
+prods <- tibble(
+  id = c(
+    "rspm", 
+    "connect-admin", 
+    "ide",
+    "shiny-server",
+    "connect-user"),
+  path = c(
+    "rspm/admin/rstudio-pm", 
+    "connect/admin/rstudio-connect", 
+    "ide/server-pro/rstudio-server-pro",
+    "shiny-server/1",
+    "connect/user/rstudio-connect"
+  )
 )
 
 pulldata <- function(path){
@@ -35,22 +44,25 @@ formatdata <- function(dat){
     mutate(
       lastmod = as_datetime(date),
       pulldate = timestamp1,
-      prod = str_extract(file, "[^/]+"),
       order = row_number()
     )
 }
 
-dat <- prods %>%
+dat0 <- prods$path %>%
   map(pulldata) %>%
-  map(formatdata) %>%
-  reduce(rbind) %>%
-  select(pulldate, prod, order, file, lastmod)
+  map(formatdata)
+
+names(dat0) <- prods$id
+
+dat1 <- dat0 %>%
+  map_df(I, .id = "prod") %>%
+  arrange(prod, desc(order))
 
 #' Docs for all RStudio professional products
 #' @get /rstudio-admin-guides
 #' @param product RStudio Product (rspm; connect; ide; shiny-server)
-function(product) {
-  dat2 <- dat %>%
+f<-function(product) {
+  dat2 <- dat1 %>%
     filter(prod == product)
   if(product == "rspm"){
     dat2 %>%
@@ -65,7 +77,7 @@ function(product) {
         ".pdf")
       ) %>%
       select(url, version, build)
-  } else if (product == "connect") {
+  } else if (product == "connect-admin") {
     dat2 %>%
       separate(file, letters[1:6], sep = "-") %>%
       separate(f, c("f", "g"), sep = "\\.") %>%
@@ -74,6 +86,22 @@ function(product) {
         "http://docs.rstudio.com/connect/",
         version,
         "/admin/rstudio-connect-admin-guide-",
+        version,
+        "-",
+        build,
+        ".pdf")
+      ) %>%
+      select(url, version, build)
+  } else if (product == "connect-user") {
+    dat2 %>%
+      filter(prod == "connect-user") %>%
+      separate(file, letters[1:6], sep = "-") %>%
+      separate(f, c("f", "g"), sep = "\\.") %>%
+      rename(version = e, build = f) %>%
+      mutate(url = paste0(
+        "http://docs.rstudio.com/connect/",
+        version,
+        "/user/rstudio-connect-user-guide-",
         version,
         "-",
         build,
@@ -93,7 +121,7 @@ function(product) {
       ) %>%
       select(url, version)  
   } else if (product == "shiny-server") {
-    dat %>%
+    dat2 %>%
       filter(prod == "shiny-server") %>%
       separate(file, letters[1:3], sep = "/") %>%
       rename(version = b) %>%
@@ -111,7 +139,7 @@ function(product) {
 #' Docs for RStudio Package Manager
 #' @get /rspm
 function(x){
-  dat %>%
+  dat1 %>%
     filter(prod == "rspm") %>%
     separate(file, letters[1:6], sep = "-") %>%
     separate(f, c("f", "g"), sep = "\\.") %>%
@@ -126,11 +154,11 @@ function(x){
     select(url, version, build)
 }
 
-#' Docs for RStudio Connect
-#' @get /connect
+#' Docs for RStudio Connect Admin
+#' @get /connect-admin
 function(x){
-  dat %>%
-    filter(prod == "connect") %>%
+  dat1 %>%
+    filter(prod == "connect-admin") %>%
     separate(file, letters[1:6], sep = "-") %>%
     separate(f, c("f", "g"), sep = "\\.") %>%
     rename(version = e, build = f) %>%
@@ -146,10 +174,30 @@ function(x){
     select(url, version, build)
 }
 
+#' Docs for RStudio Connect User
+#' @get /connect-user
+function(x){
+  dat1 %>%
+    filter(prod == "connect-user") %>%
+    separate(file, letters[1:6], sep = "-") %>%
+    separate(f, c("f", "g"), sep = "\\.") %>%
+    rename(version = e, build = f) %>%
+    mutate(url = paste0(
+      "http://docs.rstudio.com/connect/",
+      version,
+      "/user/rstudio-connect-user-guide-",
+      version,
+      "-",
+      build,
+      ".pdf")
+    ) %>%
+    select(url, version, build)
+}
+
 #' Docs for RStudio Server Pro
 #' @get /ide
 function(x){
-dat %>%
+dat1 %>%
     filter(prod == "ide") %>%
     separate(file, letters[1:7], sep = "-") %>%
     rename(version = e) %>%
@@ -166,7 +214,7 @@ dat %>%
 #' Docs for Shiny Server and Shiny Server Pro
 #' @get /shiny-server
 function(x){
-dat %>%
+dat1 %>%
     filter(prod == "shiny-server") %>%
     separate(file, letters[1:3], sep = "/") %>%
     rename(version = b) %>%

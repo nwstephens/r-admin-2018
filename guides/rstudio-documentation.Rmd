@@ -6,6 +6,19 @@ css: air.css
 
 [![](rstudio2.png)](https://www.rstudio.com/)
 
+```{r, echo=FALSE}
+library(jsonlite)
+apicall <- function(id) {
+  base <- "http://colorado.rstudio.com:3939/docs-api/rstudio-admin-guides?product="
+  fromJSON(paste0(base, id))
+}
+ide <- apicall("ide")
+connectadmin <- apicall("connect-admin")
+connectuser <- apicall("connect-user")
+shinyserver <- apicall("shiny-server")
+rspm <- apicall("rspm")
+```
+
 <hr>
 
 ### RStudio Server Pro
@@ -19,22 +32,24 @@ css: air.css
 <small>
 [**Prior Releases**](https://support.rstudio.com/hc/en-us/articles/200716783-RStudio-Release-History)
 <br>
-[1.1.442](http://docs.rstudio.com/ide/server-pro/1.1.442/rstudio-server-pro-1.1.442-admin-guide.pdf) |
-[1.1.423](http://docs.rstudio.com/ide/server-pro/1.1.423/rstudio-server-pro-1.1.423-admin-guide.pdf) |
-[1.1.419](http://docs.rstudio.com/ide/server-pro/1.1.419/rstudio-server-pro-1.1.419-admin-guide.pdf) |
-[1.1.414](http://docs.rstudio.com/ide/server-pro/1.1.414/rstudio-server-pro-1.1.414-admin-guide.pdf) |
-[1.1.383](http://docs.rstudio.com/ide/server-pro/1.1.383/rstudio-server-pro-1.1.383-admin-guide.pdf) |
-[1.0.153](http://docs.rstudio.com/ide/server-pro/1.0.153/rstudio-server-pro-1.0.153-admin-guide.pdf) |
-[1.0.143](http://docs.rstudio.com/ide/server-pro/1.0.143/rstudio-server-pro-1.0.143-admin-guide.pdf) |
-[1.0.136](http://docs.rstudio.com/ide/server-pro/1.0.136/rstudio-server-pro-1.0.136-admin-guide.pdf) |
+[`r ide$version[1]`](`r ide$url[1]`) |
+[`r ide$version[2]`](`r ide$url[2]`) |
+[`r ide$version[3]`](`r ide$url[3]`) |
+[`r ide$version[4]`](`r ide$url[4]`) |
+[`r ide$version[5]`](`r ide$url[5]`) |
+[`r ide$version[6]`](`r ide$url[6]`) |
+[`r ide$version[7]`](`r ide$url[7]`) |
+[`r ide$version[8]`](`r ide$url[8]`) |
 <br>
-[1.0.44](http://docs.rstudio.com/ide/server-pro/1.0.44/rstudio-server-pro-1.0.44-admin-guide.pdf) |
-[0.99.903](http://docs.rstudio.com/ide/server-pro/0.99.903/rstudio-server-pro-0.99.903-admin-guide.pdf) |
-[0.99.902](http://docs.rstudio.com/ide/server-pro/0.99.902/rstudio-server-pro-0.99.902-admin-guide.pdf) |
-[0.99.896](http://docs.rstudio.com/ide/server-pro/0.99.896/rstudio-server-pro-0.99.896-admin-guide.pdf) |
-[0.99.893](http://docs.rstudio.com/ide/server-pro/0.99.893/rstudio-server-pro-0.99.893-admin-guide.pdf) |
-[0.99.892](http://docs.rstudio.com/ide/server-pro/0.99.892/rstudio-server-pro-0.99.892-admin-guide.pdf) |
-[0.99.891](http://docs.rstudio.com/ide/server-pro/0.99.891/rstudio-server-pro-0.99.891-admin-guide.pdf)
+[`r ide$version[9]`](`r ide$url[9]`) |
+[`r ide$version[10]`](`r ide$url[10]`) |
+[`r ide$version[11]`](`r ide$url[11]`) |
+[`r ide$version[12]`](`r ide$url[12]`) |
+[`r ide$version[13]`](`r ide$url[13]`) |
+[`r ide$version[14]`](`r ide$url[14]`) |
+[`r ide$version[15]`](`r ide$url[15]`)
+<br>
+[**Upcoming Release**](http://docs.rstudio.com/ide/server-pro-pipeline/latest/)
 </small>
 
 <hr>
@@ -50,26 +65,41 @@ css: air.css
 <small>
 [**Prior Releases**](http://docs.rstudio.com/connect/news/)
 <br>
-[1.5.14](http://docs.rstudio.com/connect/1.5.14/admin/rstudio-connect-admin-guide-1.5.14-6.pdf) |
-[1.5.12.1](http://docs.rstudio.com/connect/1.5.12.1/admin/rstudio-connect-admin-guide-1.5.12.1-10.pdf) |
-[1.5.12](http://docs.rstudio.com/connect/1.5.12/admin/rstudio-connect-admin-guide-1.5.12-7.pdf) |
-[1.5.10](http://docs.rstudio.com/connect/1.5.10/admin/rstudio-connect-admin-guide-1.5.10-6.pdf) |
-[1.5.8](http://docs.rstudio.com/connect/1.5.8/admin/rstudio-connect-admin-guide-1.5.8-12.pdf) |
-[1.5.6.2](http://docs.rstudio.com/connect/1.5.6.2/admin/rstudio-connect-admin-guide-1.5.6.2-13.pdf) |
-[1.5.6.1](http://docs.rstudio.com/connect/1.5.6.1/admin/rstudio-connect-admin-guide-1.5.6.1-9.pdf) |
-[1.5.6](http://docs.rstudio.com/connect/1.5.6/admin/rstudio-connect-admin-guide-1.5.6-7.pdf) |
+[`r connectadmin$version[1]`](`r connectadmin$url[1]`) |
+[`r connectadmin$version[2]`](`r connectadmin$url[2]`) |
+[`r connectadmin$version[3]`](`r connectadmin$url[3]`) |
+[`r connectadmin$version[4]`](`r connectadmin$url[4]`) |
+[`r connectadmin$version[5]`](`r connectadmin$url[5]`) |
+[`r connectadmin$version[6]`](`r connectadmin$url[6]`) |
+[`r connectadmin$version[7]`](`r connectadmin$url[7]`) |
+[`r connectadmin$version[8]`](`r connectadmin$url[8]`) |
 <br>
-[1.5.4](http://docs.rstudio.com/connect/1.5.4/admin/rstudio-connect-admin-guide-1.5.4-13.pdf) |
-[1.5.2](http://docs.rstudio.com/connect/1.5.2/admin/rstudio-connect-admin-guide-1.5.2-25.pdf) |
-[1.5.0](http://docs.rstudio.com/connect/1.5.0/admin/rstudio-connect-admin-guide-1.5.0-8.pdf) |
-[1.4.6](http://docs.rstudio.com/connect/1.4.6/admin/rstudio-connect-admin-guide-1.4.6-11.pdf) |
-[1.4.4.1](http://docs.rstudio.com/connect/1.4.4.1/admin/rstudio-connect-admin-guide-1.4.4.1-16.pdf) |
-[1.4.4](http://docs.rstudio.com/connect/1.4.4/admin/rstudio-connect-admin-guide-1.4.4-4.pdf) |
-[1.4.2](http://docs.rstudio.com/connect/1.4.2/admin/rstudio-connect-admin-guide-1.4.2-15.pdf) |
-[1.4.0](http://docs.rstudio.com/connect/1.4.0/admin/rstudio-connect-admin-guide-1.4.0-18.pdf) |
+[`r connectadmin$version[9]`](`r connectadmin$url[9]`) |
+[`r connectadmin$version[10]`](`r connectadmin$url[10]`) |
+[`r connectadmin$version[11]`](`r connectadmin$url[11]`) |
+[`r connectadmin$version[12]`](`r connectadmin$url[12]`) |
+[`r connectadmin$version[13]`](`r connectadmin$url[13]`) |
+[`r connectadmin$version[14]`](`r connectadmin$url[14]`) |
+[`r connectadmin$version[15]`](`r connectadmin$url[15]`) |
+[`r connectadmin$version[16]`](`r connectadmin$url[16]`)
+</small>
+
+[**RStudio Connect: User Guide** [Current]](http://docs.rstudio.com/connect/user/)
+
+<small>
+[**Prior Releases**](http://docs.rstudio.com/connect/news/)
 <br>
-[1.2.1](http://docs.rstudio.com/connect/1.2.1/admin/rstudio-connect-admin-guide-1.2.1-28.pdf) |
-[1.2.0](http://docs.rstudio.com/connect/1.2.0/admin/rstudio-connect-admin-guide-1.2.0-22.pdf)
+[`r connectuser$version[1]`](`r connectuser$url[1]`) |
+[`r connectuser$version[2]`](`r connectuser$url[2]`) |
+[`r connectuser$version[3]`](`r connectuser$url[3]`) |
+[`r connectuser$version[4]`](`r connectuser$url[4]`) |
+[`r connectuser$version[5]`](`r connectuser$url[5]`) |
+[`r connectuser$version[6]`](`r connectuser$url[6]`) |
+[`r connectuser$version[7]`](`r connectuser$url[7]`) |
+[`r connectuser$version[8]`](`r connectuser$url[8]`) |
+<br>
+[`r connectuser$version[9]`](`r connectuser$url[9]`) |
+[`r connectuser$version[10]`](`r connectuser$url[10]`)
 </small>
 
 <hr>
@@ -85,14 +115,14 @@ css: air.css
 <small>
 [**Prior Releases**](https://support.rstudio.com/hc/en-us/articles/215642837-Shiny-Server-Pro-Release-History)
 <br>
-[1.5.6](http://docs.rstudio.com/shiny-server/1.5.6) |
-[1.5.5](http://docs.rstudio.com/shiny-server/1.5.5) |
-[1.5.4](http://docs.rstudio.com/shiny-server/1.5.4) |
-[1.5.3](http://docs.rstudio.com/shiny-server/1.5.3) |
-[1.5.2](http://docs.rstudio.com/shiny-server/1.5.2) |
-[1.5.1](http://docs.rstudio.com/shiny-server/1.5.1) |
-[1.5.0](http://docs.rstudio.com/shiny-server/1.5.0) |
-[1.4.7](http://docs.rstudio.com/shiny-server/1.4.7)
+[`r shinyserver$version[1]`](`r shinyserver$url[1]`) |
+[`r shinyserver$version[2]`](`r shinyserver$url[2]`) |
+[`r shinyserver$version[3]`](`r shinyserver$url[3]`) |
+[`r shinyserver$version[4]`](`r shinyserver$url[4]`) |
+[`r shinyserver$version[5]`](`r shinyserver$url[5]`) |
+[`r shinyserver$version[6]`](`r shinyserver$url[6]`) |
+[`r shinyserver$version[7]`](`r shinyserver$url[7]`) |
+[`r shinyserver$version[8]`](`r shinyserver$url[8]`)
 </small>
 
 <hr>
@@ -108,9 +138,9 @@ css: air.css
 <small>
 [**Prior Releases**](http://docs.rstudio.com/rspm/news/)
 <br>
-[0.3.0](http://docs.rstudio.com/rspm/admin/rstudio-pm-admin-guide-0.3.0-4.pdf) |
-[0.2.0](http://docs.rstudio.com/rspm/admin/rstudio-pm-admin-guide-0.2.0-10.pdf) |
-[0.1.0](http://docs.rstudio.com/rspm/admin/rstudio-pm-admin-guide-0.1.0-5.pdf)
+[`r rspm$version[1]`](`r rspm$url[1]`) |
+[`r rspm$version[2]`](`r rspm$url[2]`) |
+[`r rspm$version[3]`](`r rspm$url[3]`)
 </small>
 
 <hr>
@@ -132,6 +162,15 @@ css: air.css
 [![](drivers.png)](https://support.rstudio.com/hc/en-us/articles/115011761688-Getting-Started-with-RStudio-Professional-Drivers)
 
 [**Getting Started with RStudio Professional Drivers**](https://support.rstudio.com/hc/en-us/articles/115011761688-Getting-Started-with-RStudio-Professional-Drivers)
+
+* [Apache Hive](https://www.simba.com/drivers/hive-odbc-jdbc/) <small>[[Linux]](https://www.simba.com/products/Hive/doc/ODBC_InstallGuide/linux/content/odbc/hi/intro.htm)</small>
+* [Apache Impala](https://www.simba.com/drivers/impala-odbc-jdbc/) <small>[[Linux]](https://www.simba.com/products/Impala/doc/ODBC_InstallGuide/linux/content/odbc/hi/intro.htm)</small>
+* [Oracle](https://www.simba.com/drivers/oracle-odbc-jdbc/) <small>[[Linux]](https://www.simba.com/products/Oracle/doc/ODBC_InstallGuide/linux/content/odbc/intro.htm)</small>
+* [PostgreSQL](https://www.simba.com/drivers/postgresql-odbc-jdbc/) <small>[[Linux]](https://www.simba.com/products/PostgreSQL/doc/ODBC_InstallGuide/linux/content/odbc/intro.htm)</small>
+* [Amazon Redshift](https://www.simba.com/drivers/redshift-odbc-jdbc/) <small>[[Linux]](https://www.simba.com/products/Redshift/doc/ODBC_InstallGuide/linux/content/odbc/intro.htm)</small>
+* [Salesforce](https://www.simba.com/drivers/salesforce-odbc-jdbc/) <small>[[Linux]](https://www.simba.com/products/Salesforce/doc/ODBC_InstallGuide/linux/content/odbc/intro.htm)</small>
+* [Microsoft SQL Server](https://www.simba.com/drivers/sql-server-odbc/) <small>[[Linux]](https://www.simba.com/products/SQLServer/doc/ODBC_InstallGuide/linux/content/odbc/intro.htm)</small>
+* [Teradata](https://www.simba.com/drivers/teradata-odbc-jdbc/) <small>[[Linux]](http://cdn.simba.com/products/Teradata/doc/Simba_Teradata_ODBC_InstallGuide.pdf)</small>
 
 <hr>
 
@@ -239,7 +278,6 @@ css: air.css
 * [RStudio EULA](https://www.rstudio.com/about/eula/)
 * [Platform deprecation strategy](https://www.rstudio.com/about/platform-deprecation-strategy/)
 * [Who we are and what we do](https://www.rstudio.com/about/#cf0e2a85345e0767f)
-* [Why are people so excited about R?](http://colorado.rstudio.com:3939/content/1012/excited-about-R.html)
 
 <hr>
 
@@ -264,3 +302,4 @@ css: air.css
 <small>[RStudio, Inc.](https://www.rstudio.com/)<br>250 Northern Ave, Boston, MA 02210<br>844-448-1212</small>
 
 <small>Copyright 2018 RStudio | All Rights Reserved | [Legal Terms](https://www.rstudio.com/about/eula/)</small>
+
