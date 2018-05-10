@@ -21,7 +21,7 @@ Create a database user called `rstudio`. Note that this database user is not the
 ```{bash}
 ### Create a new user called 'rstudio'
 sudo -u postgres createuser --interactive
-# rstudioadmin
+# rstudio
 # y
 
 ### Create a new database called 'bitcoin'
